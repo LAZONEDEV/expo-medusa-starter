@@ -1,0 +1,33 @@
+{
+  "name": "lazone-expo-starter",
+  "private": true,
+  "workspaces": [
+    "medusa",
+    "mobile"
+  ],
+  "scripts": {
+    "lint": "yarn lint:medusa && yarn lint:mobile",
+    "lint:medusa": "eslint \"medusa/**/*.{js,ts,tsx}\"",
+    "lint:mobile": "yarn workspace mobile lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "eslint": "^9.25.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.21.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md,yml,yaml,css,scss}": [
+      "prettier --write"
+    ],
+    "medusa/**/*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}

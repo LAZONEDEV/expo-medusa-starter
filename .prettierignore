@@ -1,0 +1,17 @@
+**/node_modules/**
+**/.expo/**
+**/dist/**
+**/build/**
+**/.cache/**
+**/.medusa/**
+**/uploads/**
+**/coverage/**
+**/.next/**
+**/.turbo/**
+**/web-build/**
+
+yarn.lock
+**/yarn.lock
+
+medusa/Dockerfile
+medusa/docker-compose.yml

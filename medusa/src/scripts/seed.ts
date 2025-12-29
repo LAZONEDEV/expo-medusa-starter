@@ -42,7 +42,7 @@ const updateStoreCurrencies = createWorkflow(
                 currency_code: currency.currency_code,
                 is_default: currency.is_default ?? false,
               };
-            }
+            },
           ),
         },
       };
@@ -51,7 +51,7 @@ const updateStoreCurrencies = createWorkflow(
     const stores = updateStoresStep(normalizedInput);
 
     return new WorkflowResponse(stores);
-  }
+  },
 );
 
 export default async function seedDemoData({ container }: ExecArgs) {
@@ -72,12 +72,12 @@ export default async function seedDemoData({ container }: ExecArgs) {
       update: {
         supported_locales: [
           {
-            locale_code: "fr-FR"
+            locale_code: "fr-FR",
           },
           {
-            locale_code: "es-ES"
-          }
-        ]
+            locale_code: "es-ES",
+          },
+        ],
       },
     },
   });
@@ -88,7 +88,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
   if (!defaultSalesChannel.length) {
     // create the default sales channel
     const { result: salesChannelResult } = await createSalesChannelsWorkflow(
-      container
+      container,
     ).run({
       input: {
         salesChannelsData: [
@@ -151,7 +151,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
   logger.info("Seeding stock location data...");
   const { result: stockLocationResult } = await createStockLocationsWorkflow(
-    container
+    container,
   ).run({
     input: {
       locations: [
@@ -348,7 +348,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
   logger.info("Seeding publishable API key data...");
   const { result: publishableApiKeyResult } = await createApiKeysWorkflow(
-    container
+    container,
   ).run({
     input: {
       api_keys: [
@@ -373,7 +373,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
   logger.info("Seeding product data...");
 
   const { result: categoryResult } = await createProductCategoriesWorkflow(
-    container
+    container,
   ).run({
     input: {
       product_categories: [
